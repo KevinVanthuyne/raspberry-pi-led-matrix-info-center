@@ -4,20 +4,18 @@ from abc import ABC, abstractmethod
 
 
 class MenuComponent(ABC):
-    """  Abstract menu object, extended by Menu and MenuItem. """
+    """  Abstract menu component, extended by Menu and MenuItem. """
 
     def __init__(self, title: str) -> None:
         super().__init__()
         self.title = title
 
     @property
-    @abstractmethod
     def title(self) -> str:
         """ Title of the menu to display. """
         return self._title
 
     @title.setter
-    @abstractmethod
     def title(self, title: str) -> None:
         self._title = title
 
