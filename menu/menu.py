@@ -2,6 +2,8 @@ from menu.menu_component import MenuComponent
 
 
 class Menu(MenuComponent):
+    """ Menu object that contains submenu's """
+
     def __init__(self, title: str) -> None:
         super().__init__(title)
         self._menu_components = []
