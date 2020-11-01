@@ -30,8 +30,11 @@ class MenuComponent(ABC):
         raise NotImplemented
 
     @abstractmethod
-    def display(self) -> None:
-        """ Displays the menu. """
+    def display(self, selected: bool = False) -> None:
+        """
+        Displays the menu.
+        :param selected: if the current menu is selected or not.
+        """
         raise NotImplemented
 
     @abstractmethod

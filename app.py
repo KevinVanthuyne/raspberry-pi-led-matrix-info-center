@@ -1,4 +1,5 @@
 from msvcrt import getch
+from os import system
 
 from menu.menu import Menu
 from menu.menu_component import MenuComponent
@@ -14,8 +15,8 @@ def setup_menu() -> MenuComponent:
     """ Setup the main menu with all its sub menu's and menu items. """
 
     main_menu = Menu("MAIN MENU")
-    weather_menu = Menu("WEATHER")
-    settings_menu = Menu("SETTINGS")
+    weather_menu = Menu("Weather")
+    settings_menu = Menu("Settings")
 
     weather_menu.add(MenuItem("Min & max temperature"))
     weather_menu.add(MenuItem("Rain forecast"))
@@ -32,9 +33,11 @@ def setup_menu() -> MenuComponent:
 
 def run() -> None:
     main_menu = setup_menu()
-    main_menu.display()
 
     while True:
+        system('cls')
+        main_menu.display()
+
         key = ord(getch())
         if key == ESC_KEY:
             break

@@ -12,9 +12,15 @@ class MenuItem(MenuComponent):
         """ Submenu's can't be added to MenuItems. """
         raise NotImplemented
 
-    def display(self) -> None:
-        """ Prints the menu item to the console. """
-        print("-- {}".format(self.title))
+    def display(self, selected: bool = False) -> None:
+        """
+        Prints the menu item to the console.
+        :param selected: if the current menu is selected or not.
+        """
+        if selected:
+            print("  {}".format(self.title))
+        else:
+            print("> {}".format(self.title))
 
     def next(self) -> None:
         """ Menu items don't contain other menu items so next item can't be selected """
