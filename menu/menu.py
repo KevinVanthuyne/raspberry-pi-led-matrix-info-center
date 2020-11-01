@@ -31,19 +31,23 @@ class Menu(MenuComponent):
             self._current_menu_index += 1
         else:
             self._current_menu_index = 0
+        print(
+            "{}: {} > {}".format(self.title, self._current_menu_index, self.get_child(self._current_menu_index).title))
 
     def previous(self) -> None:
         """ Decreases the current menu index by one or resets it to the end of the menu if 0 was reached. """
         if self._current_menu_index > 0:
-            self._current_menu_index += 1
+            self._current_menu_index -= 1
         else:
             self._current_menu_index = self._max_menu_index()
+        print(
+            "{}: {} > {}".format(self.title, self._current_menu_index, self.get_child(self._current_menu_index).title))
 
     def select(self) -> None:
         """
         TODO: Navigate to the selected sub menu if a Menu is selected or open the accompanying screen of the menu item.
         """
-        raise NotImplemented
+        print("Selected {}".format(self.get_child(self._current_menu_index).title))
 
     def _max_menu_index(self):
         return len(self._menu_components) - 1
