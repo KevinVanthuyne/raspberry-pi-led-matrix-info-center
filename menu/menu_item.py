@@ -15,3 +15,15 @@ class MenuItem(MenuComponent):
     def display(self) -> None:
         """ Prints the menu item to the console. """
         print("-- {}".format(self.title))
+
+    def next(self) -> None:
+        """ Menu items don't contain other menu items so next item can't be selected """
+        raise NotImplemented
+
+    def previous(self) -> None:
+        """ Menu items don't contain other menu items so previous item can't be selected """
+        raise NotImplemented
+
+    def select(self) -> None:
+        """ TODO: Selecting a MenuItem will open the accompanying screen """
+        raise NotImplemented

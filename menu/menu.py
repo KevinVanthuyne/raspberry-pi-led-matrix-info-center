@@ -7,6 +7,7 @@ class Menu(MenuComponent):
     def __init__(self, title: str) -> None:
         super().__init__(title)
         self._menu_components = []
+        self._current_menu_index = 0
 
     def get_child(self, index: int) -> MenuComponent:
         """ :return: The sub menu on  """
@@ -23,3 +24,26 @@ class Menu(MenuComponent):
         print("--------------------------------------")
         for menu in self._menu_components:
             menu.display()
+
+    def next(self) -> None:
+        """ Increases the current menu index by one or resets it to 0 if the end of the menu was reached. """
+        if self._current_menu_index < self._max_menu_index():
+            self._current_menu_index += 1
+        else:
+            self._current_menu_index = 0
+
+    def previous(self) -> None:
+        """ Decreases the current menu index by one or resets it to the end of the menu if 0 was reached. """
+        if self._current_menu_index > 0:
+            self._current_menu_index += 1
+        else:
+            self._current_menu_index = self._max_menu_index()
+
+    def select(self) -> None:
+        """
+        TODO: Navigate to the selected sub menu if a Menu is selected or open the accompanying screen of the menu item.
+        """
+        raise NotImplemented
+
+    def _max_menu_index(self):
+        return len(self._menu_components) - 1

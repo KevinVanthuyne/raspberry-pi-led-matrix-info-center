@@ -33,3 +33,18 @@ class MenuComponent(ABC):
     def display(self) -> None:
         """ Displays the menu. """
         raise NotImplemented
+
+    @abstractmethod
+    def next(self) -> None:
+        """ Go to the next menu item in the list. """
+        raise NotImplemented
+
+    @abstractmethod
+    def previous(self) -> None:
+        """ Go to the previous menu item in the list. """
+        raise NotImplemented
+
+    @abstractmethod
+    def select(self) -> None:
+        """ Select the current menu item. """
+        raise NotImplemented
